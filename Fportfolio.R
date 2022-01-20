@@ -21,5 +21,19 @@ Risk <- function(weight, covariance.matrix){
 }
 
 
+# 等式制約関数
+equalityConstraint <- function(weight){
+  #eq.value と順番を揃えて返却
+  c(sum(weight), Risk(weight, covariance.matrix))
+}
+
+
+# 目的関数
+# --- solnp関数は目的関数を最小化する
+# --- 最大化するためには-1倍しておく必要がある
+objectiveFunction <- function(x){
+  -Return(x, return.expected)
+}
+
 
 
